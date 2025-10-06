@@ -1,0 +1,290 @@
+/*
+Theme Name: html5 shell by mimoYmima.com
+Theme URI: http://html5.mimoymima.com/
+Description: a Framework for rapidly developing HTML5 based WordPress Themes
+Version: 1.5
+Author: Brent Lagerman
+Author URI: http://mimoymima.com/
+*/
+
+/*
+	mYm6 - updated: May 15, 2012 - brent@mimoymima.com
+	
+	--- Color References ---
+	link blue: #003399;
+	background: #BACACC;
+*/
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* GENERAL STYLES - These defaults aren't site specific so you don't probably need to change them */
+/* add your styles in the BASE STYLING section below */
+/*--------------------------------------------------------------------------------------------------*/
+
+	/*--- RESET by normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css ---*/
+	article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none}[hidden]{display:none}html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}body,button,input,select,textarea{font-family:sans-serif}a:focus{outline:thin dotted}a:hover,a:active{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}blockquote{margin:1em 40px}dfn{font-style:italic}mark{background:#ff0;color:#000}pre,code,kbd,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:75%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}ul,ol{margin-left:0;padding:0 0 0 40px}dd{margin:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;*margin-left:-7px}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;*overflow:visible}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+	/*--- TEXT ---*/
+		
+		/* Font stacks - some premade stacks you could use, by default we're using the sans stack in the 'base styling' section below */
+		.serif { font-family: Baskerville, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", times, serif; } /*cambria, cochin ??*/
+		.monospace { font-family: 'courier new', courier, Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace; }
+		.sans { font-family: 'Helvetica Neue', helvetica, sans-serif; }
+
+	/*--- FORMS ---*/
+		#search-form input[type='text'] { width: 10em; }
+
+	/*--- LISTS ---*/
+	
+		/* .no-bullet: list without bullets */
+		.no-bullet { list-style-type: none; margin-bottom: 2em; }
+		.no-bullet li { margin-bottom: .5em; }
+
+		/* .bullet-list: nicer formatting for a bulleted list */
+		.bullet-list { margin: 1em 0 2em 0; line-height: 150%; }
+		.bullet-list li { margin: 0 2em 1em 2em; list-style-type: square; }
+		.bullet-list li ul { margin: .5em 0 1.5em 0; }
+		.bullet-list li ul li { list-style-type: circle; margin: 0 2em .5em 2em; }
+
+		/* .horiz-list: Used to put a list inline (horizontal) and get rid of the bullets */
+		.horiz-list ul { float: left; list-style-type: none; }
+		.horiz-list li { float: left; display: inline; }
+		.horiz-list li a { display: block; float: left; width: auto;  }
+
+		/* .link-list */
+		.link-list li { list-style-type: none; }
+		li.link-list a, ul.link-list li a { display: block; background: url(/wp-content/themes/peter-adelman/images/icon_link_arrow.png) 0px 8px no-repeat; padding-left: 20px; margin-left: 20px;  }
+	
+		/* .pdf-list */
+		.pdf-link { padding-left: 20px; margin-left: 5px; }
+		.pdf-list li { list-style-type: none; }
+		li.pdf-list a, ul.pdf-list li a { display: block; background: url(/wp-content/themes/peter-adelman/images/icon_pdf_sm.png) 0 3px no-repeat; padding-left: 20px; margin-left: 20px; }
+	
+	/*--- UTILITY ---*/
+
+		/* Clear Fixes - two methods, clear-fix is attached to the element you want to clear, .clear-all you can attach to a hr or br tag to clear the item before it as a last resort when you're in a hurry */
+		.clear-fix { display: inline-block; } /* This needs to be first because FF3 is now supporting this */
+		.clear-fix:after { content: " "; display: block; height: 0; clear: both; font-size: 0; visibility: hidden; }
+		.clear-all { visibility: hidden; clear: both; margin: 0 !important; padding: 0 !important; font-size: 0; height: 1px; }
+			/* TODO: might try this one instead one day: http://nicolasgallagher.com/micro-clearfix-hack */
+
+		/* WordPress WYSIWYG alignment -- when you put in images that span the entire width of the content area remove the width and height */
+		img.aligncenter { max-width: 100%; display: block; margin: 5px auto; }
+	    img.alignright { padding: 4px; margin: 0 0 2px 7px; display: inline; }
+	    img.alignleft { padding: 4px; margin: 0 7px 2px 0; display: inline; }
+	    .alignright { float: right; }
+		.alignleft { float: left; }
+		
+		/* Warnings */
+		.sys { text-align: left }
+		.warn {}
+
+	/*--- JQUERY RELATED --- */
+
+		/* PRELOADER: Relies on some js in the functions file and a div in the header (both commented out by default) */
+		/*.js div#preloader { position: fixed; left: 0; top: 0; z-index: 999; width: 100%; height: 100%; overflow: visible; background: #c0c0c0 url(/wp-content/themes/peter-adelman/images/loading.gif) no-repeat center center; }*/
+
+		/* Show-Hide Content */
+		.make-link { color: #06F !important; text-decoration: none; margin-bottom: .5em; } 
+		.make-link:hover, .make-link:focus, .make-link:active { cursor: pointer; color: #C60; text-decoration: underline; }
+		ul.hide { margin: 0 0 0 1em !important; padding: 0 !important; }
+
+			/* Adds 'Plus-Minus' sign to header */
+			.header-shown { background: url('/wp-content/themes/peter-adelman/images/icon_link_plus_minus.png') no-repeat 0 -20px; height: 17px; }
+			.header-hidden { background: url('/wp-content/themes/peter-adelman/images/icon_link_plus_minus.png') no-repeat 0px 3px; height: -14px; }
+
+		/* Indicators */
+		.indicator { position: absolute; z-index: 100; text-align: right; left: 0; }
+		.indicator a { width: 7em; background-color: #FF0; display: block; font-weight: bold; font-size: 12px !important; text-transform: uppercase; text-decoration: none; padding: .5em 1em; }
+		.indicator a:link, .indicator a:visited { color: black; }
+		.indicator a:hover, .indicator a:focus, .indicator a:active { color: black; background-color: #FFF; text-decoration: none; cursor: pointer; }
+		#js-ind { top: 20em; }
+	
+		/* Hide these items when Javascript is active */
+		.js #js-ind, .js .hide { display: none; }
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* BASE STYLING: sytle 320px first and go up from there using media query areas below */
+/*--------------------------------------------------------------------------------------------------*/
+
+
+	/*--- SITE WIDE ---*/
+	
+		/* LOAD FONTS */
+		@font-face { font-family: 'EBGaramond'; src: url('/wp-content/themes/peter-adelman/fonts/EBGaramond-webfont.eot'); src: url('/wp-content/themes/peter-adelman/fonts/EBGaramond-webfont.eot#iefix') format('embedded-opentype'), url('/wp-content/themes/peter-adelman/fonts/EBGaramond-webfont.woff') format('woff'), url('/wp-content/themes/peter-adelman/fonts/EBGaramond-webfont.ttf') format('truetype'), url('/wp-content/themes/peter-adelman/fonts/EBGaramond-webfont.svg') format('svg'); font-weight: normal; font-style: normal; }
+		@font-face { font-family: 'EBGaramondSC'; src: url('/wp-content/themes/peter-adelman/fonts/EBGaramondSC-webfont.eot'); src: url('/wp-content/themes/peter-adelman/fonts/EBGaramondSC-webfont.eot#iefix') format('embedded-opentype'), url('/wp-content/themes/peter-adelman/fonts/EBGaramondSC-webfont.woff') format('woff'), url('/wp-content/themes/peter-adelman/fonts/EBGaramondSC-webfont.ttf') format('truetype'), url('/wp-content/themes/peter-adelman/fonts/EBGaramondSC-webfont.svg') format('svg'); font-weight: normal; font-style: normal; }
+				
+		html { color: #333; background: #BACACC; }
+
+		/* Sets font size, width, and margins for the page */
+		body { font-size: 1.1em; font-weight: 300; line-height: 150%; font-family: 'Baskerville','Georgia', 'Times-New-Roman', times, serif; }
+	
+		/* Headings */
+		h1, h2, h3, h4, h5, h6 { font-weight: 500; font-family:'EBGaramondSC', 'Garamond', 'Georgia', 'Times-New-Roman', times, serif; text-shadow: 1px 1px 1px #fff;}
+
+		/* Links */
+		a:link, a:visited { color: #039; text-decoration: none; }
+		a:hover, a:active, a:focus { color: #039; text-decoration: underline; }
+	
+		/* Hide These Elements but keep them accessible */
+		#accessibility, #footer .vcard, nav h1 { position: absolute; left: -999em; }
+
+		/* page-wrapper */
+		#page-wrapper { background-color: #BACACC;  }
+	
+	
+	/*--- HEADER ---*/
+
+		#header-wrapper { background-color: #1C4256; width: 100%; }
+		#site-header { width: 980px; height: 250px; margin: 0 auto; }
+		
+		hgroup { padding-top: 58px }
+		#site-title { float: left; margin-right:-25px; background-color: rgb(255,255,255); background-color: rgba(255, 255, 255, .75); padding: 20px 50px 30px 30px; text-shadow: 2px 2px 1px #fff; }
+		#site-title a { text-decoration: none; color: #333333; }
+		#site-description { padding-bottom: 23px;  background-color: rgb(255,255,255); background-color: rgba(255, 255, 255, .5); margin-top: 23px; padding-top: 28px; font-family:'Baskerville','Georgia', 'Times-New-Roman', times, serif; font-style:italic; font-size: 32px; letter-spacing: .05em}	
+		#site-description span { background: url('/wp-content/themes/peter-adelman/images/header-hyphen.png') no-repeat center center; height: 3px; width: 51px; padding-right: 42px; }
+
+		/* Nav */
+		.menu-mainnav-container { width: 100%; background-color: #404649; height: 57px; border-top: 1px solid black; border-bottom: 1px solid black; }
+		#menu-mainnav { width: 980px; margin: 0 auto; padding-left: 26px;  }
+		#menu-mainnav li { float: left; }
+		#menu-mainnav a { text-decoration: none; display: inline-block; line-height: 1.8em; margin: 3px 2px 3px 2px; padding: 12px 14px; text-transform: uppercase; font-family:'EBGaramondSC', 'Garamond', 'Georgia', 'Times-New-Roman', times, serif; letter-spacing: 3px; font-size: .8em; border: 1px solid #404649;}
+		
+		/* Nav Links*/
+		#main-nav a:link, #main-nav a:visited  { color: #fff; }
+		#main-nav a:hover, #main-nav a:active, #main-nav a:focus { color: #fff; background: #53595C; text-decoration: none; border: 1px solid #393F42; }
+
+		/* DownStates*/
+		#main-nav .current_page_item a { background: #53595C; cursor: default; border: 1px solid #393F42;  }
+	
+		
+	/*--- CONTENT AREA ---*/
+	
+		#content {width: 630px; clear: both; margin: 0 auto; padding-top: 30px; background: url('/wp-content/themes/peter-adelman/images/content-end.png') no-repeat bottom center; padding-bottom: 40px; line-height: 32px;} 
+		#content em { }	
+		#content h1 { line-height: 1em; }
+		#content ul { list-style-type: square;  line-height: 1.2em; }
+		#content ul li { margin-bottom: 20px; }
+		
+		/* Page */
+		.page {}
+
+		/* Single */
+		.single {}
+
+		/* Comments using Intense Debate */			
+	
+	
+	/*--- SIDEBAR ~ MAIN ---*/
+
+		#main-sidebar ul { list-style-position: inside; }
+	
+	
+	/*--- SIDEBAR ~ FOOTER ---*/
+
+		#footer-sidebar ul { list-style-position: inside;  }
+
+
+	/*--- FOOTER ---*/
+		#footer-wrapper { width: 100%;  }
+		#footer { width: 980px; margin: 0 auto; }
+		#copyright { margin-bottom: 50px; text-align: right; }
+			
+		/* Credit */
+		#footer #mym-credit { text-align: right; margin-top: 30px; margin-bottom: -20px; }
+		#footer #mym-credit a { letter-spacing: 1px; }
+		#footer #mym-credit a#cred:link, #footer #mym-credit a#cred:visited { text-decoration: none; color: #003399; }
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* Specific Page Styles */
+/*--------------------------------------------------------------------------------------------------*/
+
+	/*--- style the 503 page (coming soon page) you activate this template file in the maintenance mode plugin ---*/
+	.maintenance {}
+
+	/*--- home ---*/
+	#home {}
+
+	/*--- about ---*/
+	#about {}
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 480 media query */
+/*--------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 480px) and (max-width: 600px) {
+	
+	/* For reference, delete later*/
+
+	.row { width: 480px; }
+
+	/* add your styles here */
+
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 600 media query */
+/*--------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 600px) and (max-width: 750px) {
+
+	/* For reference, delete later*/
+
+	.row { width: 600px; }
+
+	/* add your styles here */
+
+}
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 750 media query */
+/*--------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 750px) and (max-width: 980px) {
+
+	/* For reference, delete later*/
+
+	.row { width: 750px; }
+
+	/* add your styles here */
+
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 980 media query */
+/*--------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 980px) and (max-width: 1200px) {
+
+
+
+	/* add your styles here */
+
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* 1200 media query */
+/*--------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 1200px) {
+
+	/* For reference, delete later*/
+
+	.row { width: 1200px; }
+
+	/* add your styles here */
+
+}
